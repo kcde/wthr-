@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 :root {
-    --clr-white: #fff;
-    --clr-black: #000;
-    --clr-gray: #eee;
+    --clr-text: #000;
+    --clr-bg: #eee;
 }
 *,
 *::before,
@@ -12,7 +11,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    background-color: var(--clr-gray);
+    background-color: var(--clr-bg);
     color: var(--clr-black);
     line-height: 1.3;
 }
@@ -23,7 +22,11 @@ p {
 
 h1 {
     font-weight: 600;
-    font-size: 3rem;
+    font-size: clamp(1rem, 9vw, 5rem);
+}
+h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 h4 {
@@ -34,12 +37,64 @@ h4 {
 .container {
     width: 90%;
     margin: 0 auto;
+    padding: 4rem 0 0 0;
     text-align: center;
 }
 
 /* HELPER CLASSES */
+.split > * + * {
+    margin-top: 1rem;
+}
+.split-2 > * + * {
+    margin-top: 2rem;
+}
 
 /* ----------------- */
 
 .logo {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.location {
+    text-transform: uppercase;
+}
+
+.country,
+.date {
+    font-weight: 300;
+}
+
+.country {
+    font-size: 0.875rem;
+}
+
+.weather-icon {
+    font-size: 6rem;
+}
+
+.weather-temp {
+    text-transform: uppercase;
+}
+.temp {
+    font-size: 5rem;
+    font-weight: 300;
+}
+.weather-extras {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+.extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.extra h4 {
+    margin-bottom: 0.5rem;
+}
+
+.extra:not(:last-child) {
+    margin-right: 4rem;
 }
