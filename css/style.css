@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 :root {
-    --clr-text: #000;
+    --clr-primary: #000;
+    --clr-secondary: #fff;
     --clr-bg: #eee;
 }
 *,
@@ -12,7 +13,7 @@
 body {
     font-family: "Montserrat", sans-serif;
     background-color: var(--clr-bg);
-    color: var(--clr-black);
+    color: var(--clr-primary);
     line-height: 1.3;
 }
 p {
@@ -31,7 +32,12 @@ h3 {
 
 h4 {
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+
+input,
+button {
+    border: none;
 }
 
 .container {
@@ -39,6 +45,8 @@ h4 {
     margin: 0 auto;
     padding: 4rem 0 0 0;
     text-align: center;
+    position: relative;
+    /* border: 1px solid red; */
 }
 
 /* HELPER CLASSES */
@@ -50,10 +58,67 @@ h4 {
 }
 
 /* ----------------- */
-
+header {
+    margin-bottom: 7rem;
+}
 .logo {
     text-transform: uppercase;
     margin-bottom: 2rem;
+}
+
+.search-bar {
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+
+    height: 40px;
+    background-color: var(--clr-primary);
+    border-radius: 40px;
+    /* padding: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-box {
+    outline: none;
+    background: none;
+    padding: 0;
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    width: 0;
+    transition: all 350ms ease-in-out;
+}
+.search-btn {
+    color: var(--clr-secondary);
+    background-color: var(--clr-primary);
+    /* border: 1px solid red; */
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 100vw;
+    cursor: pointer;
+}
+
+.search-bar:hover .search-box {
+    width: 240px;
+    padding-left: 10px;
+}
+
+.search-box:focus {
+    width: 240px;
+    padding-left: 10px;
+}
+.search-bar:hover .search-btn {
+    color: var(--clr-primary);
+    background-color: var(--clr-secondary);
+}
+
+.search-box:focus + .search-btn {
+    color: var(--clr-primary);
+    background-color: var(--clr-secondary);
 }
 
 .location {
@@ -97,4 +162,35 @@ h4 {
 
 .extra:not(:last-child) {
     margin-right: 4rem;
+}
+
+.toggle {
+    padding: 4px;
+    /* border: 1px solid #eee; */
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    background-color: #2e1c3b;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: 5px;
+    top: 1rem;
+}
+
+.switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: whitesmoke;
+    width: 22px;
+    height: 22px;
+    border-radius: 100vw;
+}
+
+.sun {
+    color: orange;
+}
+.moon {
+    color: yellow;
 }
