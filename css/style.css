@@ -95,7 +95,7 @@ header {
     font-size: 1rem;
     font-weight: 300;
     width: 0;
-    transition: all 350ms ease-in-out;
+    transition: all 450ms ease-in-out;
 }
 .search-btn {
     color: var(--clr-secondary);
