@@ -130,9 +130,11 @@ header {
 .location {
     text-transform: uppercase;
 }
+.city {
+    letter-spacing: 0.5rem;
+}
 
-.country,
-.date {
+.country {
     font-weight: 300;
 }
 
