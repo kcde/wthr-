@@ -262,3 +262,10 @@ header {
         transform: scale(1);
     }
 }
+
+@media (max-width: 900px) {
+    .search-box {
+        width: 240px;
+        padding-left: 10px;
+    }
+}
