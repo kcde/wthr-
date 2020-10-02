@@ -122,9 +122,9 @@ const getWeather = async () => {
             console.log(jsonResponse);
             return jsonResponse;
         }
-
-        let f = await response.json();
-        return f;
+        //throw new Error('Request Failed');
+        let error = await response.json();
+        return error;
     } catch (error) {
         console.log(error);
         return error;
@@ -179,7 +179,7 @@ const renderWind = () => {
     getWeather().then((obj) => {
         let windSpeed = obj.wind.speed;
         //coverting wind from m/s to km/hr
-        wind.innerHTML = `${windSpeed * 3.6} km/hr`;
+        wind.innerHTML = `${Math.round(windSpeed * 3.6)} km/hr`;
     });
 };
 
@@ -187,40 +187,29 @@ const renderFeel = () => {
     getWeather().then((obj) => {
         let feelTemp = obj.main["feels_like"];
 
-        feel.innerHTML = `${feelTemp}&deg;C`;
+        feel.innerHTML = `${Math.round(feelTemp)}&deg;C`;
     });
 };
 
 const errorCheck = () => {
     getWeather().then((obj) => {
         if (obj.cod === "404") {
-            weatherInfo.classList.add("no-show");
             errorAlert.classList.remove("no-show");
-            return;
+            weatherInfo.classList.add("no-show");
         }
     });
 };
 
 const renderAll = () => {
-    weatherInfo.classList.remove("no-show");
-    errorAlert.classList.add("no-show");
     renderIcon();
     renderTempExtra();
     renderWind();
     renderTemp();
     renderHumidity();
     renderFeel();
-
     renderCountry();
-};
-
-const search = () => {
-    if (searchBox === null) {
-        return;
-    }
-    errorCheck();
-    renderAll();
-    searchBox.value = "";
+    weatherInfo.classList.remove("no-show");
+    errorAlert.classList.add("no-show");
 };
 
 // renderCountry();
@@ -228,5 +217,27 @@ const search = () => {
 // submit event listener
 
 searchBtn.addEventListener("click", () => {
-    search();
+    if (!searchBox.value.trim()) {
+        weatherInfo.classList.add("no-show");
+        errorAlert.classList.remove("no-show");
+        return;
+    } else {
+        errorCheck();
+    }
+    renderAll();
+    searchBox.value = "";
+});
+
+searchBox.addEventListener("keypress", (event) => {
+    if (event.key == "Enter") {
+        if (!searchBox.value.trim()) {
+            weatherInfo.classList.add("no-show");
+            errorAlert.classList.remove("no-show");
+            return;
+        } else {
+            errorCheck();
+        }
+        renderAll();
+        searchBox.value = "";
+    }
 });
