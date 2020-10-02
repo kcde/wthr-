@@ -108,7 +108,7 @@ const selectIcon = (code) => {
 
 const getWeather = async () => {
     const apiKey = "0d140b8d00a8d3070d7f560ef3e063f6";
-    const url = "http://api.openweathermap.org/data/2.5/weather?";
+    const url = "https://api.openweathermap.org/data/2.5/weather?";
     let city = searchBox.value;
 
     //endpoint example: api.openweathermap.org/data/2.5/weather?q=city&appid=apiKey&units=metric
