@@ -6,8 +6,13 @@
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/style.css" />
 
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link
+            rel="shortcut icon"
+            href="./assets/favicon.ico"
+            type="image/x-icon"
+        />
         <script src="./app/fontawesomepro.js"></script>
+        <script src="./app/countries.js"></script>
         <script defer src="./app/app.js"></script>
         <title>Weather App</title>
     </head>
@@ -43,7 +48,12 @@
                     </button>
                 </div>
             </header>
-            <div class="weather-info split-2">
+
+            <div class="error no-show">
+                <p><i class="fas fa-city"></i></p>
+                <p>City not found!</p>
+            </div>
+            <div class="weather-info split-2 no-show">
                 <section class="location split">
                     <h3 class="city">abuja</h3>
                     <p class="country">nigeria</p>
@@ -67,15 +77,15 @@
                 <section class="weather-extras">
                     <div class="extra">
                         <h4>humidity</h4>
-                        <p>95%</p>
+                        <p class="humidity">95%</p>
                     </div>
                     <div class="extra">
                         <h4>wind</h4>
-                        <p>3 km/hr</p>
+                        <p class="wind">3 km/hr</p>
                     </div>
                     <div class="extra">
                         <h4>real feel</h4>
-                        <p>19&deg;c</p>
+                        <p class="feel">19&deg;c</p>
                     </div>
                 </section>
             </div>

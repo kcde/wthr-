@@ -63,7 +63,17 @@ button {
     margin-top: 2rem;
 }
 
+.no-show {
+    display: none;
+}
+
 /* ----------------- */
+
+.error p {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.7rem;
+}
 header {
     margin-bottom: 7rem;
 }
@@ -106,6 +116,7 @@ header {
     font-size: 1rem;
     border-radius: 100vw;
     cursor: pointer;
+    transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
 }
 
 .search-bar:hover .search-box {
@@ -194,6 +205,7 @@ header {
     width: 22px;
     height: 22px;
     border-radius: 100vw;
+    cursor: pointer;
     transition: transform 350ms ease-in-out;
 }
 
